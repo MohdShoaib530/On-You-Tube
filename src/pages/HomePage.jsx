@@ -42,19 +42,19 @@ function HomePage() {
   }, [category, language, orderBy, publishedAtYear, channels]);
 
   return (
-    <div className="page flex flex-col mt-5">
+    <div className="page w-full max-w-384 flex flex-col mt-5 px-3 lg:px-17 mx-auto min-h-screen">
       {/* Header */}
-      <div className="flex items-center justify-between px-18 py-4 ">
+      <div className="flex items-center justify-between ">
         {/* Left Title */}
-        <h1 className="text-3xl font-bold text-gray-800">On YouTube</h1>
+        <h1 className="text-2xl fotn-semibold leading-none tracking-normal lg:text-3xl lg:font-bold font-bold text-gray-800">On YouTube</h1>
 
         {/* Right Language Filters */}
-        <div className="flex border rounded overflow-hidden">
+        <div className="flex border-[#a3a3a3] border-[.5px] rounded overflow-hidden h-7 lg:h-7.25 relative items-center ">
           {languagesButton.map((lang, i) => (
             <button
               key={i}
               onClick={() => setLanguage(lang.value)}
-              className={`px-4 py-2 text-sm font-medium cursor-pointer ${
+              className={`px-2 py-1 lg:px-4 lg:py-2 text-sm font-medium cursor-pointer ${
                 i !== 0 ? "border-l" : ""
               } ${
                 language === lang.value
@@ -90,7 +90,7 @@ function HomePage() {
 
       {/* Video Grid */}
       <div
-        className="grid gap-x-4 gap-y-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-18"
+        className="grid gap-x-4 gap-y-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 "
       >
         {videos.slice(0, 50).map((video) => (
           <VideoCard key={video.id} video={video} />
