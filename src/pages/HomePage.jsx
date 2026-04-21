@@ -17,8 +17,8 @@ function HomePage() {
   ]);
   const languagesButton = [
     { label: "ALL", value: null },
-    { label: "ENG", value: 1 },
-    { label: "हिन्दी", value: 2 },
+    { label: "ENG", value: 2 },
+    { label: "हिन्दी", value: 1 },
   ];
   useEffect(() => {
     const fetchData = async () => {
@@ -90,7 +90,7 @@ function HomePage() {
 
       {/* Video Grid */}
       <div
-        className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 px-18"
+        className="grid gap-x-4 gap-y-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-18"
       >
         {videos.slice(0, 50).map((video) => (
           <VideoCard key={video.id} video={video} />

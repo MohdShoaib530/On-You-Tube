@@ -10,23 +10,23 @@ export default function VideoCard({ video }) {
         />
 
         {/* Duration */}
-        <span className="absolute bottom-1 right-1 bg-black/80 text-white text-xs px-1.5 py-0.5 rounded">
+        <span className="text-sm font-semibold absolute bottom-1 right-1 bg-black/80 text-gray-300  px-1.5 py-0.5 rounded">
           {video.duration}
         </span>
       </div>
 
       {/* Content */}
-      <div className="mt-2 space-y-1">
+      <div className="mt-2 space-y-1.2">
         {/* Title */}
-        <h3 className="text-sm font-medium leading-snug line-clamp-2">
+        <h3 className="text-base font-medium leading-snug line-clamp-2">
           {video.title}
         </h3>
 
         {/* Channel */}
-        <p className="text-xs text-gray-500">{video.channel}</p>
+        <p className="text-sm text-gray-500">{video.channel}</p>
 
         {/* Views + Time */}
-        <p className="text-xs text-gray-500">
+        <p className="text-[13px]  text-gray-500 ">
           {video.views} • {video.timeAgo}
         </p>
 
@@ -35,7 +35,7 @@ export default function VideoCard({ video }) {
           {video.tags?.slice(0, 3).map((tag, i) => (
             <span
               key={i}
-              className="text-[11px] bg-gray-200 px-2 py-0.5 rounded"
+              className="font-semibold text-xs bg-[#eceff1] px-2 py-0.5 rounded text-[#797677]"
             >
               {tag}
             </span>
