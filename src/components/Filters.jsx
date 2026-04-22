@@ -4,6 +4,7 @@ import {
   CHANNEL_OPTIONS,
   YEAR_OPTIONS,
 } from "../constants/filters.js";
+import { ChevronDown, ChevronUp } from "lucide-react";
 const groupedChannels = {
   hindi: CHANNEL_OPTIONS.filter((c) => c.language === "hindi"),
   english: CHANNEL_OPTIONS.filter((c) => c.language === "english"),
@@ -45,10 +46,10 @@ const Filters = ({ orderBy, setOrderBy, setChannel, year, setYear }) => {
         {/* Button */}
         <button
           onClick={() => setIsOpen(true)}
-          className={`px-4 py-2 border bg-white text-sm font-medium`}
+          className={`px-4 py-2 border bg-white text-sm font-medium flex items-center`}
         >
           Channel ({selectedChannels.length})
-          <span className={`transition ${isOpen ? "rotate-180" : ""}`}> ⌃</span>
+          <span className={`transition ${isOpen ? "rotate-180" : ""}`}><ChevronDown size={16} /></span>
         </button>
 
         {/* Drawer */}
@@ -178,11 +179,11 @@ const Filters = ({ orderBy, setOrderBy, setChannel, year, setYear }) => {
         {/* Button */}
         <button
           onClick={() => setIsYearOpen(!isYearOpen)}
-          className="px-4 py-2 border text-sm bg-white flex items-center gap-2 font-medium"
+          className=" px-4 py-2 border text-sm bg-white flex items-center gap-2 font-medium"
         >
           {year || "Year"}
           <span className={`transition ${isYearOpen ? "rotate-180" : ""}`}>
-            ⌃
+            <ChevronDown size={16} />
           </span>
           
         </button>
