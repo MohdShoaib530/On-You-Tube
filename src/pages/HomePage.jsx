@@ -6,6 +6,7 @@ import Filters from "../components/Filters.jsx";
 import VideoCard from "../components/VideoCard.jsx";
 
 function HomePage() {
+  const [loading, setLoading] = useState(false);
   const [videos, setVideos] = useState([]);
   const [category, setCategory] = useState(null);
   const [language, setLanguage] = useState(null);
@@ -23,6 +24,8 @@ function HomePage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
+
         const videos = await fetchVideos({
           categoryId: category,
           channels: channels,
@@ -32,21 +35,23 @@ function HomePage() {
         });
 
         setVideos(videos);
-        console.log("videos", videos);
       } catch (error) {
         console.log("error", error);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchData();
   }, [category, language, orderBy, publishedAtYear, channels]);
-
   return (
     <div className="page w-full max-w-384 flex flex-col mt-8 px-3 lg:px-17 mx-auto min-h-screen">
       {/* Header */}
       <div className="flex items-center justify-between ">
         {/* Left Title */}
-        <h1 className="text-2xl fotn-semibold leading-none tracking-normal lg:text-3xl lg:font-bold font-bold text-gray-800">On YouTube</h1>
+        <h1 className="text-2xl fotn-semibold leading-none tracking-normal lg:text-3xl lg:font-bold font-bold text-gray-800">
+          On YouTube
+        </h1>
 
         {/* Right Language Filters */}
         <div className="flex border-[#a3a3a3] border-[.5px] rounded overflow-hidden h-7 lg:h-7.25 relative items-center ">
@@ -89,13 +94,17 @@ function HomePage() {
       </div>
 
       {/* Video Grid */}
-      <div
-        className="grid gap-x-4 gap-y-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 "
-      >
-        {videos.slice(0, 50).map((video) => (
-          <VideoCard key={video.id} video={video} />
-        ))}
-      </div>
+      {loading ? (
+        <div className="flex justify-center items-center h-96">
+          <div className="w-10 h-10 border-4 border-gray-300 border-t-gray-800 rounded-full animate-spin"></div>
+        </div>
+      ) : (
+        <div className="grid gap-x-4 gap-y-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
+          {videos.slice(0, 50).map((video) => (
+            <VideoCard key={video.link} video={video} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
