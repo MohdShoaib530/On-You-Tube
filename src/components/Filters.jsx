@@ -16,7 +16,7 @@ const Filters = ({ orderBy, setOrderBy, setChannel, year, setYear }) => {
   const [isYearOpen, setIsYearOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="flex gap-3  py-4 overflow-x-scroll">
+    <div className="flex gap-3 py-4 flex-wrap">
       {/* Order Buttons */}
       <div className="flex gap-2">
         {ORDER_OPTIONS.map((item) => {
