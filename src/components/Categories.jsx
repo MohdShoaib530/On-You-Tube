@@ -7,7 +7,7 @@ const Categories = ({ categories, category, setCategory }) => {
     const container = scrollRef.current;
     if (!container) return;
 
-    const scrollAmount = 200;
+    const scrollAmount = 600;
 
     container.scrollBy({
       left: direction === "left" ? -scrollAmount : scrollAmount,

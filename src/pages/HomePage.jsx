@@ -35,6 +35,7 @@ function HomePage() {
         });
 
         setVideos(videos);
+        console.log("videos", videos);
       } catch (error) {
         console.log("error", error);
       } finally {
@@ -88,6 +89,7 @@ function HomePage() {
           orderBy={orderBy}
           setOrderBy={setOrderBy}
           setChannel={setChannels}
+          channels={channels}
           setYear={setPublishedAtYear}
           year={publishedAtYear}
         />
@@ -99,12 +101,15 @@ function HomePage() {
           <div className="w-10 h-10 border-4 border-gray-300 border-t-gray-800 rounded-full animate-spin"></div>
         </div>
       ) : (
-        <div
-          className="flex flex-col gap-4 md:grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 md:gap-x-4 md:gap-y-6"
-        >
-          {videos.map((video) => (
-            <VideoCard key={video.link} video={video} />
-          ))}
+        <div className="flex flex-col gap-4 md:grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 md:gap-x-4 md:gap-y-6">
+          {videos.length === 0 && !loading? (
+            <div className="flex flex-col  items-center justify-center mt-20 text-gray-500">
+              <p className="text-lg font-medium">No videos found</p>
+              <p className="text-sm mt-1">Try changing filters</p>
+            </div>
+          ) : (
+            videos.map((video) => <VideoCard key={video.link} video={video} />)
+          )}
         </div>
       )}
     </div>
