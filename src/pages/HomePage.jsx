@@ -42,7 +42,7 @@ function HomePage() {
   }, [category, language, orderBy, publishedAtYear, channels]);
 
   return (
-    <div className="page w-full max-w-384 flex flex-col mt-5 px-3 lg:px-17 mx-auto min-h-screen">
+    <div className="page w-full max-w-384 flex flex-col mt-8 px-3 lg:px-17 mx-auto min-h-screen">
       {/* Header */}
       <div className="flex items-center justify-between ">
         {/* Left Title */}

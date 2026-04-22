@@ -1,3 +1,4 @@
+import {config} from '../config/config.js'
 export const fetchVideos = async (params) => {
   const query = new URLSearchParams();
 
@@ -10,7 +11,7 @@ export const fetchVideos = async (params) => {
   params.channels?.forEach((ch) => query.append("channels", ch));
 
   const res = await fetch(
-    `http://localhost:3000/api/videos?${query.toString()}`,
+    `${config.backendUrl}?${query.toString()}`,
 
   );
 

@@ -47,7 +47,7 @@ const Categories = ({ categories, category, setCategory }) => {
       {/* Left Arrow */}
       <button
         onClick={() => scroll("left")}
-        className="rounded-[3px] hidden sm:block absolute left-0 top-2/3 px-4 py-2 -translate-y-1/2 bg-white border-gray-400 border cursor-pointer opacity-0 group-hover:opacity-100 transition"
+        className="shadow-gray-200 rounded-[3px] hidden sm:block absolute left-0 top-2/3 px-4 py-2 -translate-y-1/2 bg-white border border-gray-300  hover:shadow-lg hover:bg-gray-50 cursor-pointer opacity-0 group-hover:opacity-100 transition-all duration-200"
       >
         ‹
       </button>
@@ -55,7 +55,7 @@ const Categories = ({ categories, category, setCategory }) => {
       {/* Right Arrow */}
       <button
         onClick={() => scroll("right")}
-        className="rounded-[3px] hidden sm:block absolute right-0 top-2/3 px-4 py-2 -translate-y-1/2 bg-white border-gray-400 border cursor-pointer opacity-0 group-hover:opacity-100 transition"
+       className="shadow-gray-200 rounded-[3px] hidden sm:block absolute right-0 top-2/3 px-4 py-2 -translate-y-1/2 bg-white border border-gray-300  hover:shadow-lg hover:bg-gray-50 cursor-pointer opacity-0 group-hover:opacity-100 transition-all duration-200"
       >
         ›
       </button>
