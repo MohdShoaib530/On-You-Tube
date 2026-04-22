@@ -21,6 +21,8 @@ function HomePage() {
     { label: "ENG", value: 2 },
     { label: "हिन्दी", value: 1 },
   ];
+  
+  // Fetch Videos
   useEffect(() => {
     const fetchData = async () => {
       try {

@@ -1,7 +1,7 @@
 export default function VideoCard({ video }) {
   return (
     <div className="w-full">
-      {/* 🔥 Mobile Layout (< md) */}
+      {/* screen (< md) */}
       <div className="w-full md:hidden border-b border-gray-300 pb-4">
         <div className="flex gap-3">
           {/* Thumbnail */}
@@ -36,7 +36,7 @@ export default function VideoCard({ video }) {
           </div>
         </div>
 
-        {/* 🔥 Tags */}
+        {/* Tags */}
         <div className="flex flex-wrap gap-2 mt-2">
           {video.tags?.slice(0, 3).map((tag, i) => (
             <span
@@ -55,7 +55,7 @@ export default function VideoCard({ video }) {
         </div>
       </div>
 
-      {/* 🔥 Desktop Layout (≥ md) */}
+      {/* Screen (≥ md) */}
       <div className="hidden md:block">
         {/* Thumbnail */}
         <div className="relative w-full aspect-video overflow-hidden rounded-lg">

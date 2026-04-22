@@ -25,7 +25,6 @@ const Filters = ({
   const [isOpen, setIsOpen] = useState(false);
   const yearRef = useRef(null);
 
-  // ✅ temp state (IMPORTANT)
   const [tempChannels, setTempChannels] = useState(channels);
 
   useEffect(() => {
@@ -65,11 +64,11 @@ const Filters = ({
         })}
       </div>
 
-      {/* 🔥 Channel Dropdown */}
+      {/* Channel Dropdown */}
       <div className="relative">
         <button
           onClick={() => {
-            setTempChannels(channels); // ✅ sync
+            setTempChannels(channels); //  syncing
             setIsOpen(true);
           }}
           className="px-4 py-2 rounded-[5px] border bg-white text-sm font-medium flex items-center gap-2"
@@ -180,7 +179,7 @@ const Filters = ({
 
                 <button
                   onClick={() => {
-                    setChannel(tempChannels); // ✅ APPLY ONLY HERE
+                    setChannel(tempChannels); //
                     setIsOpen(false);
                   }}
                   className="flex-1 bg-gray-700 text-white py-2"
@@ -193,7 +192,7 @@ const Filters = ({
         )}
       </div>
 
-      {/* 🔥 Year */}
+      {/* Year */}
       <div ref={yearRef} className="relative">
         <button
           onClick={() => setIsYearOpen(!isYearOpen)}
