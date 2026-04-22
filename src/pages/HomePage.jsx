@@ -102,10 +102,25 @@ function HomePage() {
         </div>
       ) : (
         <div className="flex flex-col gap-4 md:grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 md:gap-x-4 md:gap-y-6">
-          {videos.length === 0 && !loading? (
-            <div className="flex flex-col  items-center justify-center mt-20 text-gray-500">
+          {videos.length === 0 && !loading ? (
+            <div className="flex flex-col absolute left-[35%] md:left-[45%] top-[30%]  mx-auto items-center justify-center pt-20 text-gray-500">
               <p className="text-lg font-medium">No videos found</p>
-              <p className="text-sm mt-1">Try changing filters</p>
+              <button
+                onClick={() => {
+                  setCategory(null);
+                  setLanguage(null);
+                  setOrderBy("3");
+                  setPublishedAtYear(null);
+                  setChannels([
+                    "UCkuZJIhMYCnOa0dnWeHuN2w",
+                    "UCMgapddJymOC6MBOiOqia1A",
+                  ]);
+                }}
+                className="relative text-[16px] text-gray-700 font-bold uppercase tracking-wide border-b-2 border-black pb-0.5 transition-all duration-300
+             hover:text-white hover:bg-black px-2 py-1"
+              >
+                Remove Filters
+              </button>
             </div>
           ) : (
             videos.map((video) => <VideoCard key={video.link} video={video} />)

@@ -44,7 +44,7 @@ const Filters = ({
 
   return (
     <div className="flex gap-3 py-4 flex-wrap">
-      {/* 🔥 Order */}
+      {/*  Order */}
       <div className="flex gap-2">
         {ORDER_OPTIONS.map((item) => {
           const isActive = orderBy === item.value;
@@ -53,7 +53,7 @@ const Filters = ({
             <button
               key={item.label}
               onClick={() => setOrderBy(item.value)}
-              className={`px-4 py-2 border text-sm font-medium ${
+              className={`px-4 py-2 border rounded-[5px] text-sm font-medium ${
                 isActive
                   ? "bg-black text-white"
                   : "bg-white text-gray-700 hover:bg-gray-100"
@@ -72,7 +72,7 @@ const Filters = ({
             setTempChannels(channels); // ✅ sync
             setIsOpen(true);
           }}
-          className="px-4 py-2 border bg-white text-sm font-medium flex items-center gap-2"
+          className="px-4 py-2 rounded-[5px] border bg-white text-sm font-medium flex items-center gap-2"
         >
           Channel ({channels.length})
           <ChevronDown size={16} />
@@ -197,7 +197,7 @@ const Filters = ({
       <div ref={yearRef} className="relative">
         <button
           onClick={() => setIsYearOpen(!isYearOpen)}
-          className="px-4 py-2 border text-sm bg-white flex items-center gap-2 font-medium"
+          className="px-4 rounded-[5px] py-2 border text-sm bg-white flex items-center gap-2 font-medium"
         >
           {year || "Year"}
           <ChevronDown size={16} />
