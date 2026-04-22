@@ -34,7 +34,7 @@ function HomePage() {
           publishedAtYear: publishedAtYear,
         });
 
-        setVideos(videos);
+        setVideos(videos.data);
         console.log("videos", videos);
       } catch (error) {
         console.log("error", error);
