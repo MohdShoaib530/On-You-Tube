@@ -48,7 +48,7 @@ function HomePage() {
     fetchData();
   }, [category, language, orderBy, publishedAtYear, channels]);
   return (
-    <div className="page w-full max-w-384 flex flex-col mt-8 px-3 lg:px-17 mx-auto min-h-screen">
+    <div className="page w-full max-w-384 flex flex-col mt-8 px-3 lg:px-17 mx-auto min-h-screen gap-1">
       {/* Header */}
       <div className="flex items-center justify-between ">
         {/* Left Title */}
@@ -77,7 +77,7 @@ function HomePage() {
       </div>
 
       {/* Categories */}
-      <div>
+      <div className="sticky top-0  z-50 bg-white">
         <Categories
           categories={categories}
           category={category}
@@ -86,7 +86,7 @@ function HomePage() {
       </div>
 
       {/* Filters */}
-      <div>
+      <div className="sticky top-13.5 z-50 bg-white ">
         <Filters
           orderBy={orderBy}
           setOrderBy={setOrderBy}
