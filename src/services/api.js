@@ -11,7 +11,7 @@ export const fetchVideos = async (params = {}) => {
 
     params.channels?.forEach((ch) => query.append("channels", ch));
 
-    const url = `/api/v2/uni/yt?limit=50&offset=0&${query.toString()}`;
+    const url = `https://acharyaprashant.org/api/v2/uni/yt?limit=50&offset=0&${query.toString()}`;
 
     const res = await fetch(url);
 
