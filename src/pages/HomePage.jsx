@@ -104,9 +104,11 @@ function HomePage() {
       ) : (
         <div className="flex flex-col gap-4 md:grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 md:gap-x-4 md:gap-y-6">
           {videos.length === 0 && !loading ? (
-            <div className="flex flex-col absolute left-[35%] md:left-[45%] top-[30%]  mx-auto items-center justify-center pt-20 text-gray-500">
-              <TvMinimalPlay size={40} strokeWidth={2.75} absoluteStrokeWidth />
-              <p className="text-lg font-medium">No videos found</p>
+            <div className="col-span-full flex flex-col items-center justify-center py-20 text-gray-500 text-center">
+              <TvMinimalPlay size={40} strokeWidth={2.75} />
+
+              <p className="text-lg font-medium mt-3">No videos found</p>
+
               <button
                 onClick={() => {
                   setCategory(null);
@@ -118,8 +120,7 @@ function HomePage() {
                     "UCMgapddJymOC6MBOiOqia1A",
                   ]);
                 }}
-                className="relative text-[16px] text-gray-700 font-bold uppercase tracking-wide border-b-2 border-black pb-0.5 transition-all duration-300
-             hover:text-white hover:bg-black px-2 py-1"
+                className="mt-4 text-[16px] text-gray-700 font-bold uppercase tracking-wide border-b-2 border-black pb-0.5 transition-all duration-300 hover:text-white hover:bg-black px-2 py-1"
               >
                 Remove Filters
               </button>
