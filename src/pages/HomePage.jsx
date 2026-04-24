@@ -4,6 +4,7 @@ import { categories } from "../constants/categories.js";
 import Categories from "../components/Categories.jsx";
 import Filters from "../components/Filters.jsx";
 import VideoCard from "../components/VideoCard.jsx";
+import { TvMinimalPlay } from "lucide-react";
 
 function HomePage() {
   const [loading, setLoading] = useState(false);
@@ -21,13 +22,12 @@ function HomePage() {
     { label: "ENG", value: 2 },
     { label: "हिन्दी", value: 1 },
   ];
-  
+
   // Fetch Videos
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
-
         const videos = await fetchVideos({
           categoryId: category,
           channels: channels,
@@ -36,8 +36,7 @@ function HomePage() {
           publishedAtYear: publishedAtYear,
         });
 
-        setVideos(videos.data);
-        console.log("videos", videos);
+        setVideos(videos);
       } catch (error) {
         console.log("error", error);
       } finally {
@@ -106,6 +105,7 @@ function HomePage() {
         <div className="flex flex-col gap-4 md:grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 md:gap-x-4 md:gap-y-6">
           {videos.length === 0 && !loading ? (
             <div className="flex flex-col absolute left-[35%] md:left-[45%] top-[30%]  mx-auto items-center justify-center pt-20 text-gray-500">
+              <TvMinimalPlay size={40} strokeWidth={2.75} absoluteStrokeWidth />
               <p className="text-lg font-medium">No videos found</p>
               <button
                 onClick={() => {
@@ -125,7 +125,7 @@ function HomePage() {
               </button>
             </div>
           ) : (
-            videos.map((video) => <VideoCard key={video.link} video={video} />)
+            videos.map((video) => <VideoCard key={video.url} video={video} />)
           )}
         </div>
       )}
